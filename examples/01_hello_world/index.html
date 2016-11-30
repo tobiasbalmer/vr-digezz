@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Examples | Hello World</title>
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+
+        <!-- objects --> 
+        
+        <a-box position="2 0.5 3" rotation="0 0 0" width="1" height="2" depth="1" color="#1a889d"></a-box>        
+        <a-box position="2 0.5 0" rotation="0 0 0" width="1" height="4" depth="1" color="#1a889d"></a-box>
+        <a-box position="2 0.5 -3" rotation="0 0 0" width="1" height="6" depth="1" color="#1a889d"></a-box>
+        
+        <a-box position="-2 0.5 3" rotation="0 0 0" width="1" height="2" depth="1" color="#1a889d"></a-box>         
+        <a-box position="-2 0.5 0" rotation="0 0 0" width="1" height="4" depth="1" color="#1a889d"></a-box>
+        <a-box position="-2 0.5 -3" rotation="0 0 0" width="1" height="6" depth="1" color="#1a889d"></a-box>        
+        
+        <a-sphere position="0 2.5 -6" radius="1.25" color="#7e253b">
+            <a-animation attribute="position" to="0 3.5 -6" dur="1000" repeat="indefinite" direction="alternate-reverse"></a-animation>        
+        </a-sphere>
+        <a-cylinder position="0 0 -6" radius="1" height="1.5" color="#b27709"></a-cylinder>
+        
+        <!-- ground with depth -->
+        <a-box position="0 -1 0" rotation="-90 0 0" width="30" height="30" depth="1" color="#1b6f48"></a-box>
+        <!-- flat ground
+        <a-plane rotation="-90 0 0" width="30" height="30" depth="1" color="#1b6f48"></a-plane>
+        -->
+
+        <a-sky color="#83d4ff"></a-sky>
+        
+        <a-entity position="0 0 3.8">
+            <a-camera></a-camera>
+        </a-entity>
+        
+    </a-scene>
+</body>
+
+</html>
