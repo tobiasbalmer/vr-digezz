@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Examples | Lights</title>
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+
+        <!-- objects -->
+        <a-sphere position="0 1 -10" radius="1.25" color="#60b7b0">
+            <a-animation attribute="position" to="0 1 10" dur="3000" repeat="indefinite" direction="alternate-reverse"></a-animation>
+        </a-sphere>
+
+        <!-- flat ground -->
+        <a-plane rotation="-90 0 0" width="30" height="30" color="#555555"></a-plane>
+
+        <!-- lights -->
+        <a-light type="spot" color="#f0f0f0" position="0 5 -3" angle="180"></a-light>
+
+        <a-sky color="#004d76"></a-sky>
+
+        <a-entity position="0 0 3.8">
+            <a-camera></a-camera>
+        </a-entity>
+
+    </a-scene>
+</body>
+
+</html>
