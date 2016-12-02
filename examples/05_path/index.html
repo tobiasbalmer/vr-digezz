@@ -1,0 +1,20 @@
+<head>
+    <title>Examples | Path</title>
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-sphere color="red" radius="0.25" position="0 0 0">
+        </a-sphere>
+        
+        <a-plane rotation="-90 0 0" width="30" height="30" color="#555555"></a-plane>        
+        
+        <a-sky color="#004d76"></a-sky>
+        
+        <!-- https://github.com/protyze/aframe-alongpath-component -->
+        <a-camera position="0 0 0" alongpath="path:2,2,-5 -2,1,-2.5 0,1,-1; closed:true; dur:5000; delay:4000; loop:true; inspector:false;"></a-camera>
+        
+    </a-scene>
+</body>
