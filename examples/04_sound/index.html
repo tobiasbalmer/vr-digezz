@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Examples | Hello World</title>
+    <script src="/src/aframe-v0.3.2.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+
+        <a-assets>
+            <audio id="atmo" src="atomsphere.mp3">
+        </a-assets>
+            
+            <a-entity position="0 0 10">
+                <a-camera></a-camera>
+            </a-entity>
+        
+        <a-box position="0 5 0" width="5" height="5" depth="5" color="#000" id="audio" sound="src: #atmo; autoplay: true; loop: true;">
+            <a-animation attribute="scale" from="1 1 1" to="0.8 0.8 0.8" begin="startPlay" dur="1200" direction="alternate" repeat="indefinite" easing="ease-in-out"></a-animation>                
+        </a-box>
+        
+        <!-- flat ground -->
+        <a-plane rotation="-90 0 0" width="30" height="30" color="#1b6f48"></a-plane>
+        
+
+        <a-sky color="#83d4ff"></a-sky>
+        
+        <a-entity position="0 0 3.8">
+            <a-camera></a-camera>
+        </a-entity>
+        
+    </a-scene>
+        
+    <script>
+        document.querySelector('#audio').addEventListener('play', function () { 
+            console.log('audio playing');
+            document.querySelector('#audio').emit('startPlay');            
+        });
+    </script>
+</body>
+
+</html>
