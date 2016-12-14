@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Maze</title>    
+    <script src="/src/aframe-v0.3.2.min.js"></script>
+    <script src="/src/aframe-extras-v2.6.1.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <!-- Camera -->
+        <a-entity position="0 0 0">
+            <a-camera universal-controls></a-camera>
+        </a-entity>
+
+        <!-- Ground -->
+        <a-plane position="0 0 0" rotation="-90 0 0" width="200" height="200" color="#1b6f48"></a-plane>
+        
+        <!-- Walls -->
+        <a-plane position="100 20 0" rotation="0 -90 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
+        <a-plane position="-100 20 0" rotation="0 90 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
+        <a-plane position="0 20 100" rotation="0 180 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
+        <a-plane position="0 20 -100" rotation="0 0 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
+        
+        <!-- Sky -->
+        <a-sky color="lightblue"></a-sky> 
+    </a-scene>
+    
+    <script src="js/script.js"></script>
+</body>
+
+</html>
