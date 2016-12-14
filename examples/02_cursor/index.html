@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Examples | Cursor</title>
     <script src="/src/aframe-v0.3.2.min.js"></script>
+    <script src="/src/aframe-extras-v2.6.1.min.js"></script>    
 </head>
 
 <body>
@@ -20,7 +21,7 @@
             <a-animation begin="click" attribute="scale" fill="forwards" to="0.6 0.6 0.6" dur="500"></a-animation>                        
         </a-box>        
         
-        <a-camera position="0 0 0">
+        <a-camera universal-controls position="0 0 0">
             <a-cursor color="#2E3A87" objects="[data-interactive='true']">
                 <a-animation begin="cursor-hovering" attribute="scale" from="1 1 1" to="3 3 1" dur="300"></a-animation>                                 
                 <a-animation begin="cursor-fusing" attribute="scale" to="5 5 1" dur="2000" fill="backwards"></a-animation>                 

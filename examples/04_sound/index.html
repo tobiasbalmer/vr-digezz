@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Examples | Sound</title>
     <script src="/src/aframe-v0.3.2.min.js"></script>
+    <script src="/src/aframe-extras-v2.6.1.min.js"></script>    
 </head>
 
 <body>
@@ -15,7 +16,7 @@
         </a-assets>
             
         <a-entity position="0 0 10">
-            <a-camera></a-camera>
+            <a-camera universal-controls></a-camera>
         </a-entity>
         
         <a-box position="0 5 0" width="5" height="5" depth="5" color="#000" id="audio" sound="src: #atmo; autoplay: true; loop: true;">
