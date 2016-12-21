@@ -23,15 +23,24 @@
         
         <a-camera universal-controls position="0 0 0">
             <a-cursor color="#2E3A87" objects="[data-interactive='true']">
-                <a-animation begin="cursor-hovering" attribute="scale" from="1 1 1" to="3 3 1" dur="300"></a-animation>                                 
+                <a-animation begin="cursor-hovering" attribute="scale" to="3 3 1" dur="300"></a-animation> 
+                <a-animation begin="cursor-leaving" attribute="scale" to="1 1 1" dur="300"></a-animation>                 
                 <a-animation begin="cursor-fusing" attribute="scale" to="5 5 1" dur="2000" fill="backwards"></a-animation>                 
             </a-cursor>
         </a-camera>
         
-        <a-plane rotation="-90 0 0" width="30" height="30" color="#1b6f48"></a-plane>            
+        <a-plane data-interactive="false" rotation="-90 0 0" width="30" height="30" color="#1b6f48"></a-plane>            
         
         <a-sky color="#fff"></a-sky>        
     </a-scene>
+    <script>
+        var boxes = document.querySelectorAll('a-box');
+        for (var i = 0; i < boxes.length; i++) {
+            boxes[i].addEventListener('mouseleave', function () {
+                document.querySelector('a-cursor').emit('cursor-leaving'); 
+            });            
+        }
+    </script>
 </body>
 
 </html>
