@@ -9,6 +9,7 @@
     "lite-server": "^2.2.2"
   },
   "scripts": {
-    "server": "lite-server"
+    "dev-server": "lite-server",
+    "server": "lite-server -c live-bs-config.json"  
   }
 }
