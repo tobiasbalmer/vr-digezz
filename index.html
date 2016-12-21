@@ -13,40 +13,44 @@
     <a-scene>
 
         <a-assets>
+            <img id="icons-01" crossorigin="anonymous" src="img/icons-01.png">
+            <img id="icons-02" crossorigin="anonymous" src="img/icons-02.png">
+            <img id="icons-03" crossorigin="anonymous" src="img/icons-03.png">
+            <img id="icons-04" crossorigin="anonymous" src="img/icons-04.png">
+            <img id="icons-05" crossorigin="anonymous" src="img/icons-05.png">
+            <img id="icons-06" crossorigin="anonymous" src="img/icons-06.png">
+            <img id="icons-07" crossorigin="anonymous" src="img/icons-07.png">            
         </a-assets>
 
-        <a-entity position="0 0 8">
-            <a-camera cursor="fuse: false" look-controls wasd-controls universal-controls>
-
+        <a-entity position="0 0 8" rotation="0 120 0">
+            <a-camera cursor="fuse: true" universal-controls>
                 <a-ring radius-outer="0.15" radius-inner="0.10" position="0 0 -3" material="color: #4ef0f0; shader: flat" cursor="maxDistance: 30; fuse: false">
-                    <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.6 0.6 0.6" dur="150"></a-animation>
-                    <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.6 0.6 0.6" dur="1500"></a-animation>
+                    <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.6 0.6 0.6" dur="1000"></a-animation>
                 </a-ring>
-
             </a-camera>
         </a-entity>
 
         <a-entity position="0 2 0">
             <!-- Hello World -->
-            <a-box position="-8 0 8" rotation="0 90 0" width="3" height="3" depth="0.3" color="#102d8d" href="/examples/01_hello_world/index.html"></a-box> 
+            <a-box position="-8 0 8" rotation="0 90 0" width="3" height="3" depth="0.3" material="shader: flat; src: #icons-01" href="/examples/01_hello_world/index.html"></a-box> 
             
             <!-- Cursor -->
-            <a-box position="-7 0 4" rotation="0 60 0" width="3" height="3" depth="0.3" color="#079833" href="/examples/02_cursor/index.html"></a-box> 
+            <a-box position="-7 0 4" rotation="0 60 0" width="3" height="3" depth="0.3" material="shader: flat; src: #icons-02" href="/examples/02_cursor/index.html"></a-box> 
             
             <!-- Lights -->
-            <a-box position="-4 0 1" rotation="0 30 0" width="3" height="3" depth="0.3" color="#098681" href="/examples/03_lights/index.html"></a-box> 
+            <a-box position="-4 0 1" rotation="0 30 0" width="3" height="3" depth="0.3" material="shader: flat; src: #icons-03" href="/examples/03_lights/index.html"></a-box> 
             
             <!-- Sound -->
-            <a-box position="0 0 0" rotation="0 0 0" width="3" height="3" depth="0.3" color="#8d1010" href="/examples/04_sound/index.html"></a-box> 
+            <a-box position="0 0 0" rotation="0 0 0" width="3" height="3" depth="0.3" material="shader: flat; src: #icons-04" href="/examples/04_sound/index.html"></a-box> 
             
             <!-- Path -->
-            <a-box position="4 0 1" rotation="0 -30 0" width="3" height="3" depth="0.3" color="#098681" href="/examples/05_path/index.html"></a-box> 
+            <a-box position="4 0 1" rotation="0 -30 0" width="3" height="3" depth="0.3" material="shader: flat; src: #icons-05" href="/examples/05_path/index.html"></a-box> 
             
             <!-- Terrain -->
-            <a-box position="7 0 4" rotation="0 -60 0" width="3" height="3" depth="0.3" color="#079833" href="/examples/06_terrain/index.html"></a-box> 
+            <a-box position="7 0 4" rotation="0 -60 0" width="3" height="3" depth="0.3" material="shader: flat; src: #icons-06" href="/examples/06_terrain/index.html"></a-box> 
             
             <!-- Physics -->
-            <a-box position="8 0 8" rotation="0 -90 0" width="3" height="3" depth="0.3" color="#102d8d" href="/examples/07_physics/index.html"></a-box>            
+            <a-box position="8 0 8" rotation="0 -90 0" width="3" height="3" depth="0.3" material="shader: flat; src: #icons-07" href="/examples/07_physics/index.html"></a-box>            
         </a-entity>
 
         <a-plane rotation="-90 0 0" width="30" height="30" color="#1b6f48"></a-plane>
