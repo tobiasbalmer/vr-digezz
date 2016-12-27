@@ -3,28 +3,55 @@
 <head>
     <title>Maze</title>    
     <script src="/src/aframe-v0.4.0.min.js"></script>
-    <script src="/src/aframe-extras-v3.1.0.min.js"></script>
+    <script src="/src/aframe-extras-v3.2.0.min.js"></script>
+    <script src="js/script.js"></script>    
 </head>
 
 <body>
     <a-scene>
-        <!-- Camera -->
-        <a-entity camera universal-controls kinematic-body jump-ability position="0 1 0"></a-entity>
+        <!-- Camera -->        
+        <a-entity camera universal-controls kinematic-body jump-ability position="0 3 0">
+            <a-ring id="cursor" radius-outer="0.15" radius-inner="0.10" scale="0.1 0.1 0.1" position="0 0 -0.3" material="color: #a3a3a3; shader: flat; opacity: 0.8;" cursor="maxDistance: 30; fuse: false"></a-ring>                    
+        </a-entity>
 
+        <!-- fading room -->
+        <a-entity id="fading-room" position="0 0 0">
+            <a-box id="clicker" static-body trigger-others="target: .fading-room" position="0 0 -2">
+                <a-animation attribute="scale" begin="click" from="1 1 1" to="2 2 2" dur="500" fill="forwards"></a-animation>                
+            </a-box>
+            
+            <!-- walls -->
+            <a-box class="fading-room" static-body position="0 2 -4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
+                <a-animation begin="triggered" attribute="position" to="0 -2.1 -4" dur="1500" fill="forwards" delay="5000"></a-animation>            
+            </a-box>
+            <a-box class="fading-room" static-body position="0 2 4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
+                <a-animation begin="triggered" attribute="position" to="0 -2.1 4" dur="1500" fill="forwards" delay="5900"></a-animation>                    
+            </a-box>
+            <a-box class="fading-room" static-body position="4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
+                <a-animation begin="triggered" attribute="position" to="4 -2.1 0" dur="1500" fill="forwards" delay="5300"></a-animation>                    
+            </a-box>
+            <a-box class="fading-room" static-body position="-4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
+                <a-animation begin="triggered" attribute="position" to="-4 -2.1 0" dur="1500" fill="forwards" delay="5600"></a-animation>            
+            </a-box>
+           
+            <!-- ceiling -->
+            <a-box class="fading-room" static-body position="0 4 0" width="8" height="0.1" depth="8" color="black">
+                <a-animation begin="triggered" attribute="position" to="0 6 0" dur="2500" fill="forwards" delay="2000"></a-animation>  
+                <a-animation begin="triggered" attribute="opacity" from="1" to="0" dur="500" fill="forwards" delay="5900"></a-animation>                  
+            </a-box>
+        </a-entity>
+    
         <!-- Ground -->
-        <a-plane static-body position="0 0 0" rotation="-90 0 0" width="200" height="200" color="#1b6f48"></a-plane>
-        
-        <!-- Walls -->
+        <a-plane static-body position="0 0 0" rotation="-90 0 0" width="200" height="200" color="#606060"></a-plane>
+        <!-- outer Walls -->
         <a-plane static-body position="100 20 0" rotation="0 -90 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
         <a-plane static-body position="-100 20 0" rotation="0 90 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
         <a-plane static-body position="0 20 100" rotation="0 180 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
         <a-plane static-body position="0 20 -100" rotation="0 0 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
         
         <!-- Sky -->
-        <a-sky color="lightblue"></a-sky> 
+        <a-sky color="#67bedb"></a-sky> 
     </a-scene>
-    
-    <script src="js/script.js"></script>
 </body>
 
 </html>
