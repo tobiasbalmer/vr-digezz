@@ -8,7 +8,29 @@
 </head>
 
 <body>
-    <a-scene>
+    <a-scene> <!-- fog="type: exponential; color: #f0f0f0; density: 0.019;" -->
+        <!-- Assets -->
+        <a-assets>
+            <!-- ground pattern -->
+            <img id="ground-pattern" crossorigin="anonymous" src="img/ground.png">            
+            
+            <!-- big tower -->
+            <a-asset-item id="bigTowerObj" src="model/big-tower/big-tower.obj"></a-asset-item>
+            <a-asset-item id="bigTowerMtl" src="model/big-tower/big-tower.mtl"></a-asset-item>  
+            
+            <!-- cone tower -->
+            <a-asset-item id="coneTowerObj" src="model/cone-tower/cone-tower.obj"></a-asset-item>
+            <a-asset-item id="coneTowerMtl" src="model/cone-tower/cone-tower.mtl"></a-asset-item>  
+            
+            <!-- art -->
+            <a-asset-item id="artObj" src="model/art/art.obj"></a-asset-item>
+            <a-asset-item id="artMtl" src="model/art/art.mtl"></a-asset-item>  
+            
+            <!-- pyramid -->
+            <!--a-asset-item id="bigTowerObj" src="model/big-tower/big-tower.obj"></a-asset-item>
+            <a-asset-item id="bigTowerMtl" src="model/big-tower/big-tower.mtl"></a-asset-item-->              
+        </a-assets>        
+        
         <!-- Camera -->        
         <a-entity camera universal-controls kinematic-body jump-ability position="0 3 1.5">
             <a-ring id="cursor" radius-outer="0.15" radius-inner="0.10" scale="0.1 0.1 0.1" position="0 0 -0.3" material="color: #a3a3a3; shader: flat; opacity: 0.8;" cursor="maxDistance: 30; fuse: false"></a-ring>                    
@@ -48,14 +70,31 @@
                 <a-animation begin="triggered" attribute="depth" to="0" dur="500" fill="forwards" delay="3000"></a-animation>                  
             </a-box>
         </a-entity>
+        
+        <!-- city -->
+        
+        <!-- big towers -->
+        <a-entity static-body position="0 -0.9 -40" scale="1 1 1" rotation="0 90 0" obj-model="obj: #bigTowerObj; mtl: #bigTowerMtl"></a-entity>        
+        <a-entity static-body position="0 -0.9 120" scale="0.7 0.7 0.7" rotation="0 -90 0" obj-model="obj: #bigTowerObj; mtl: #bigTowerMtl"></a-entity>        
+        <a-entity static-body position="-120 -0.9 0" scale="0.7 0.7 0.7" rotation="0 -90 0" obj-model="obj: #bigTowerObj; mtl: #bigTowerMtl"></a-entity>        
+        <a-entity static-body position="120 -0.9 0" scale="0.7 0.7 0.7" rotation="0 0 0" obj-model="obj: #bigTowerObj; mtl: #bigTowerMtl"></a-entity>        
     
+        <!-- cone towers -->
+        <a-entity static-body position="270 -0.9 -260" scale="1 1 1" rotation="0 -130 0" obj-model="obj: #coneTowerObj; mtl: #coneTowerMtl"></a-entity>        
+        <a-entity static-body position="270 -0.9 260" scale="1 1 1" rotation="0 130 0" obj-model="obj: #coneTowerObj; mtl: #coneTowerMtl"></a-entity>        
+        <a-entity static-body position="-270 -0.9 -260" scale="1 1 1" rotation="0 310 0" obj-model="obj: #coneTowerObj; mtl: #coneTowerMtl"></a-entity>        
+        <a-entity static-body position="-270 -0.9 260" scale="1 1 1" rotation="0 40 0" obj-model="obj: #coneTowerObj; mtl: #coneTowerMtl"></a-entity>        
+
+        <!-- art -->
+        <a-entity static-body position="0 0 40" scale="0.2 0.2 0.2" rotation="0 90 0" obj-model="obj: #artObj; mtl: #artMtl"></a-entity>
+        
         <!-- Ground -->
-        <a-plane static-body position="0 0 0" rotation="-90 0 0" width="200" height="200" color="#606060"></a-plane>
+        <a-plane static-body position="0 0 0" rotation="-90 0 0" width="600" height="600" material="shader: flat; repeat: 2000; src: #ground-pattern;"></a-plane>
         <!-- outer Walls -->
-        <a-plane static-body position="100 20 0" rotation="0 -90 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
-        <a-plane static-body position="-100 20 0" rotation="0 90 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
-        <a-plane static-body position="0 20 100" rotation="0 180 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
-        <a-plane static-body position="0 20 -100" rotation="0 0 0" width="200" height="40" opacity="0.1" color="#5780db"></a-plane>
+        <a-plane static-body position="300 20 0" rotation="0 -90 0" width="600" height="40" opacity="0.1" color="#5780db"></a-plane>
+        <a-plane static-body position="-300 20 0" rotation="0 90 0" width="600" height="40" opacity="0.1" color="#5780db"></a-plane>
+        <a-plane static-body position="0 20 300" rotation="0 180 0" width="600" height="40" opacity="0.1" color="#5780db"></a-plane>
+        <a-plane static-body position="0 20 -300" rotation="0 0 0" width="600" height="40" opacity="0.1" color="#5780db"></a-plane>
         
         <!-- Sky -->
         <a-sky color="#67bedb"></a-sky> 
