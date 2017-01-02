@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>VR Digezz | Overview</title>
     <script src="/src/aframe-v0.4.0.min.js"></script>
-    <script src="/src/aframe-extras-v3.1.0.min.js"></script>  
+    <script src="/src/aframe-extras-v3.2.0.min.js"></script>
     <script src="/src/aframe-href-component.min.js"></script>
 </head>
 
@@ -24,8 +24,10 @@
 
         <a-entity position="0 0 8" rotation="0 120 0">
             <a-camera cursor="fuse: true" universal-controls>
-                <a-ring radius-outer="0.15" radius-inner="0.10" position="0 0 -3" material="color: #4ef0f0; shader: flat" cursor="maxDistance: 30; fuse: false">
-                    <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.6 0.6 0.6" dur="1000"></a-animation>
+                <a-ring id="cam" radius-outer="0.045" radius-inner="0.03" position="0 0 -1" scale="1 1 1" material="color: #4ef0f0; shader: flat" cursor="maxDistance: 30; fuse: true">
+                    <a-animation begin="start-fusing" easing="ease-in" attribute="scale" fill="forwards" to="0.6 0.6 0.6" dur="1000"></a-animation>                    
+                    <a-animation begin="cursor-fusing" easing="ease-in" attribute="position" to="0 0 -1" fill="forwards" dur="1000"></a-animation>
+                    <a-animation begin="abort-fusing" easing="ease-in" attribute="scale" fill="forwards" to="1 1 1" dur="300"></a-animation>
                 </a-ring>
             </a-camera>
         </a-entity>
@@ -58,6 +60,19 @@
         <a-sky color="#83d4ff"></a-sky>
 
     </a-scene>
+    <script>
+        theCam = document.getElementById('cam');
+        boxes = document.getElementsByTagName('a-box');
+        
+        for(var i = 0; i < boxes.length; i++) {
+            boxes[i].addEventListener('mouseenter', function () {
+                theCam.emit('start-fusing');
+            }, false);            
+            
+            boxes[i].addEventListener('mouseleave', function () {
+                theCam.emit('abort-fusing');
+            }, false);
+        }
+    </script>    
 </body>
-
 </html>
