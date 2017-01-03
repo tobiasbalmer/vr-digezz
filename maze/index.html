@@ -34,14 +34,14 @@
             <a-asset-item id="tt1Obj" src="model/tall-tower/tall-tower-1.obj"></a-asset-item>
             <a-asset-item id="tt1Mtl" src="model/tall-tower/tall-tower-1.mtl"></a-asset-item>             
             
-            <a-asset-item id="tt1oObj" src="model/tall-tower/tall-tower-1.obj"></a-asset-item>
-            <a-asset-item id="tt1oMtl" src="model/tall-tower/tall-tower-1.mtl"></a-asset-item>
+            <a-asset-item id="tt1oObj" src="model/tall-tower/tall-tower-1-open.obj"></a-asset-item>
+            <a-asset-item id="tt1oMtl" src="model/tall-tower/tall-tower-1-open.mtl"></a-asset-item>
             
-            <a-asset-item id="tt2Obj" src="model/tall-tower/tall-tower-1.obj"></a-asset-item>
-            <a-asset-item id="tt2Mtl" src="model/tall-tower/tall-tower-1.mtl"></a-asset-item>
+            <a-asset-item id="tt2Obj" src="model/tall-tower/tall-tower-2.obj"></a-asset-item>
+            <a-asset-item id="tt2Mtl" src="model/tall-tower/tall-tower-2.mtl"></a-asset-item>
             
-            <a-asset-item id="tt3Obj" src="model/tall-tower/tall-tower-1.obj"></a-asset-item>
-            <a-asset-item id="tt3Mtl" src="model/tall-tower/tall-tower-1.mtl"></a-asset-item>
+            <a-asset-item id="tt3Obj" src="model/tall-tower/tall-tower-3.obj"></a-asset-item>
+            <a-asset-item id="tt3Mtl" src="model/tall-tower/tall-tower-3.mtl"></a-asset-item>
                         
             <!-- wide towers -->
             <a-asset-item id="wt1Obj" src="model/wide-tower/wide-tower-1.obj"></a-asset-item>
@@ -99,7 +99,16 @@
         <!-- city -->
         
             <!-- big towers -->
-            <a-entity static-body position="0 0 -50" scale="1 1 1" rotation="0 -90 0" obj-model="obj: #lt1Obj; mtl: #lt1Mtl"></a-entity>        
+            <a-entity static-body position="0 -0.9 -50" scale="1 1 1" rotation="0 90 0" obj-model="obj: #tt3Obj; mtl: #tt3Mtl"></a-entity>        
+            <a-entity static-body position="-60 -0.9 -10" scale="1 1 1" rotation="0 0 0" obj-model="obj: #lt1Obj; mtl: #lt1Mtl"></a-entity>        
+            <a-entity static-body position="60 -0.9 -15" scale="1 1 1" rotation="0 -180 0" obj-model="obj: #lt2Obj; mtl: #lt2Mtl"></a-entity>        
+            <a-entity static-body position="-70 -0.9 40" scale="1 1 1" rotation="0 0 0" obj-model="obj: #lt2Obj; mtl: #lt2Mtl"></a-entity>        
+            <a-entity static-body position="50 -0.9 65" scale="1 1 1" rotation="0 -90 0" obj-model="obj: #wt1Obj; mtl: #wt1Mtl"></a-entity>        
+            <a-entity static-body position="-20 -0.9 75" scale="1 1 1" rotation="0 -90 0" obj-model="obj: #lt1oObj; mtl: #lt1oMtl"></a-entity>        
+            <a-entity static-body position="-30 -0.9 135" scale="1 1 1" rotation="0 -90 0" obj-model="obj: #tt1Obj; mtl: #tt1Mtl"></a-entity>        
+            <a-entity static-body position="15 -0.9 200" scale="1 1 1" rotation="0 180 0" obj-model="obj: #wt2Obj; mtl: #wt2Mtl"></a-entity>        
+            <a-entity static-body position="105 -0.9 215" scale="1 1 1" rotation="0 -90 0" obj-model="obj: #tt2Obj; mtl: #tt2Mtl"></a-entity>        
+            <a-entity static-body position="100 -0.7 125" scale="0.8 0.8 0.8" rotation="0 -90 0" obj-model="obj: #lt1Obj; mtl: #lt1Mtl"></a-entity>        
         
         <!-- end city -->
         
