@@ -16,21 +16,43 @@
             <!-- ground pattern -->
             <img id="ground-pattern" crossorigin="anonymous" src="img/ground.png">            
             
-            <!-- big tower -->
-            <a-asset-item id="bigTowerObj" src="model/big-tower/big-tower.obj"></a-asset-item>
-            <a-asset-item id="bigTowerMtl" src="model/big-tower/big-tower.mtl"></a-asset-item>  
+            <!-- little towers --> 
+            <a-asset-item id="lt1Obj" src="model/little-tower/little-tower-1.obj"></a-asset-item>
+            <a-asset-item id="lt1Mtl" src="model/little-tower/little-tower-1.mtl"></a-asset-item>             
             
-            <!-- cone tower -->
-            <a-asset-item id="coneTowerObj" src="model/cone-tower/cone-tower.obj"></a-asset-item>
-            <a-asset-item id="coneTowerMtl" src="model/cone-tower/cone-tower.mtl"></a-asset-item>  
+            <a-asset-item id="lt1oObj" src="model/little-tower/little-tower-1-open.obj"></a-asset-item>
+            <a-asset-item id="lt1oMtl" src="model/little-tower/little-tower-1-open.mtl"></a-asset-item>             
             
-            <!-- art -->
-            <a-asset-item id="artObj" src="model/art/art.obj"></a-asset-item>
-            <a-asset-item id="artMtl" src="model/art/art.mtl"></a-asset-item>  
+            <a-asset-item id="lt2Obj" src="model/little-tower/little-tower-2.obj"></a-asset-item>
+            <a-asset-item id="lt2Mtl" src="model/little-tower/little-tower-2.mtl"></a-asset-item>             
             
-            <!-- pyramid -->
-            <!--a-asset-item id="bigTowerObj" src="model/big-tower/big-tower.obj"></a-asset-item>
-            <a-asset-item id="bigTowerMtl" src="model/big-tower/big-tower.mtl"></a-asset-item-->              
+            <a-asset-item id="lt2oObj" src="model/little-tower/little-tower-2-open.obj"></a-asset-item>
+            <a-asset-item id="lt2oMtl" src="model/little-tower/little-tower-2-open.mtl"></a-asset-item>             
+                        
+            
+            <!-- tall towers -->
+            <a-asset-item id="tt1Obj" src="model/tall-tower/tall-tower-1.obj"></a-asset-item>
+            <a-asset-item id="tt1Mtl" src="model/tall-tower/tall-tower-1.mtl"></a-asset-item>             
+            
+            <a-asset-item id="tt1oObj" src="model/tall-tower/tall-tower-1.obj"></a-asset-item>
+            <a-asset-item id="tt1oMtl" src="model/tall-tower/tall-tower-1.mtl"></a-asset-item>
+            
+            <a-asset-item id="tt2Obj" src="model/tall-tower/tall-tower-1.obj"></a-asset-item>
+            <a-asset-item id="tt2Mtl" src="model/tall-tower/tall-tower-1.mtl"></a-asset-item>
+            
+            <a-asset-item id="tt3Obj" src="model/tall-tower/tall-tower-1.obj"></a-asset-item>
+            <a-asset-item id="tt3Mtl" src="model/tall-tower/tall-tower-1.mtl"></a-asset-item>
+                        
+            <!-- wide towers -->
+            <a-asset-item id="wt1Obj" src="model/wide-tower/wide-tower-1.obj"></a-asset-item>
+            <a-asset-item id="wt1Mtl" src="model/wide-tower/wide-tower-1.mtl"></a-asset-item>
+            
+            <a-asset-item id="wt1oObj" src="model/wide-tower/wide-tower-1-open.obj"></a-asset-item>
+            <a-asset-item id="wt1oMtl" src="model/wide-tower/wide-tower-1-open.mtl"></a-asset-item>
+            
+            <a-asset-item id="wt2Obj" src="model/wide-tower/wide-tower-2.obj"></a-asset-item>
+            <a-asset-item id="wt2Mtl" src="model/wide-tower/wide-tower-2.mtl"></a-asset-item>            
+            
         </a-assets>        
         
         <!-- Camera -->        
@@ -73,22 +95,13 @@
             </a-box>
         </a-entity>
         
+        
         <!-- city -->
         
-        <!-- big towers -->
-        <a-entity static-body position="0 -0.9 -40" scale="1 1 1" rotation="0 90 0" obj-model="obj: #bigTowerObj; mtl: #bigTowerMtl"></a-entity>        
-        <a-entity static-body position="0 -0.9 120" scale="0.7 0.7 0.7" rotation="0 -90 0" obj-model="obj: #bigTowerObj; mtl: #bigTowerMtl"></a-entity>        
-        <a-entity static-body position="-120 -0.9 0" scale="0.7 0.7 0.7" rotation="0 -90 0" obj-model="obj: #bigTowerObj; mtl: #bigTowerMtl"></a-entity>        
-        <a-entity static-body position="120 -0.9 0" scale="0.7 0.7 0.7" rotation="0 0 0" obj-model="obj: #bigTowerObj; mtl: #bigTowerMtl"></a-entity>        
-    
-        <!-- cone towers -->
-        <a-entity static-body position="270 -0.9 -260" scale="1 1 1" rotation="0 -130 0" obj-model="obj: #coneTowerObj; mtl: #coneTowerMtl"></a-entity>        
-        <a-entity static-body position="270 -0.9 260" scale="1 1 1" rotation="0 130 0" obj-model="obj: #coneTowerObj; mtl: #coneTowerMtl"></a-entity>        
-        <a-entity static-body position="-270 -0.9 -260" scale="1 1 1" rotation="0 310 0" obj-model="obj: #coneTowerObj; mtl: #coneTowerMtl"></a-entity>        
-        <a-entity static-body position="-270 -0.9 260" scale="1 1 1" rotation="0 40 0" obj-model="obj: #coneTowerObj; mtl: #coneTowerMtl"></a-entity>        
-
-        <!-- art -->
-        <a-entity static-body position="0 0 40" scale="0.2 0.2 0.2" rotation="0 90 0" obj-model="obj: #artObj; mtl: #artMtl"></a-entity>
+            <!-- big towers -->
+            <a-entity static-body position="0 0 -50" scale="1 1 1" rotation="0 -90 0" obj-model="obj: #lt1Obj; mtl: #lt1Mtl"></a-entity>        
+        
+        <!-- end city -->
         
         <!-- Ground -->
         <a-plane static-body position="0 0 0" rotation="-90 0 0" width="600" height="600" material="shader: flat; repeat: 2000; src: #ground-pattern;"></a-plane>

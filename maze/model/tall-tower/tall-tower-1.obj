@@ -1,7 +1,7 @@
 # MagicaVoxel @ ephtracy
 
 # material
-mtllib big-tower.mtl
+mtllib tall-tower-1.mtl
 usemtl palette
 
 # normals
