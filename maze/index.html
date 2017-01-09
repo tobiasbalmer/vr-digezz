@@ -14,7 +14,10 @@
         <!-- Assets -->
         <a-assets>
             <!-- ground pattern -->
-            <img id="ground-pattern" crossorigin="anonymous" src="img/ground.png">            
+            <img id="ground-pattern" crossorigin="anonymous" src="img/ground.png">  
+            
+            <!-- 360 background -->
+            <img id="city-bg" crossorigin="anonymous" src="img/background_test.jpg">            
             
             <!-- little towers --> 
             <a-asset-item id="lt1Obj" src="model/little-tower/little-tower-1.obj"></a-asset-item>
@@ -157,13 +160,13 @@
         <!-- Ground -->
         <a-plane static-body position="0 0 0" rotation="-90 0 0" width="550" height="600" material="shader: flat; repeat: 2000; src: #ground-pattern;"></a-plane>
         <!-- outer Walls -->
-        <a-plane static-body position="235 20 0" rotation="0 -90 0" width="600" height="40" opacity="0.1" color="#5780db"></a-plane>
-        <a-plane static-body position="-230 20 0" rotation="0 90 0" width="600" height="40" opacity="0.1" color="#5780db"></a-plane>
-        <a-plane static-body position="0 20 265" rotation="0 180 0" width="600" height="40" opacity="0.1" color="#5780db"></a-plane>
-        <a-plane static-body position="0 20 -265" rotation="0 0 0" width="600" height="40" opacity="0.1" color="#5780db"></a-plane>
+        <a-plane static-body position="235 20 0" rotation="0 -90 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
+        <a-plane static-body position="-230 20 0" rotation="0 90 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
+        <a-plane static-body position="0 20 265" rotation="0 180 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
+        <a-plane static-body position="0 20 -265" rotation="0 0 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
         
         <!-- Sky -->
-        <a-sky color="#67bedb"></a-sky> 
+        <a-sky radius="600" src="#city-bg"></a-sky> 
     </a-scene>
 </body>
 
