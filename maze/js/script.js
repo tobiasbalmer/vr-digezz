@@ -34,6 +34,8 @@ AFRAME.registerComponent('trigger-others', {
 AFRAME.registerComponent('automove-controls', {    
     init: function () {
         var _this = this,
+            vrScene = document.querySelector('a-scene'),
+            vrLight = document.querySelectorAll('.light'),
             ground = document.getElementById('ground-plane'),
             sky = document.querySelector('a-sky');
         
@@ -48,10 +50,16 @@ AFRAME.registerComponent('automove-controls', {
         }); 
         
         this.el.addEventListener('switch', function () {
-            _this.isMoving = false;
+            _this.speed = 0;            
             ground.setAttribute('material', 'src', '#grass-pattern');
             sky.setAttribute('material', 'src', '#nature-bg');
-
+            vrScene.setAttribute('fog', {'type': 'exponential', 'color': '#f0f0f0', 'density': 0.019});
+            
+            setTimeout(function () {
+                for (var i = 0; i < vrLight.length; i++) {
+                    vrLight[i].emit('down');
+                }
+            }, 15000);
         });         
     },
     isVelocityActive: function () {
