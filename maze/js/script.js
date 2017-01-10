@@ -37,14 +37,14 @@ AFRAME.registerComponent('automove-controls', {
             ground = document.getElementById('ground-plane'),
             sky = document.querySelector('a-sky');
         
-        this.speed = 0.8;
+        this.speed = 1.2;
         this.isMoving = false;
         this.velocityDelta = new THREE.Vector3();
                 
         this.el.addEventListener('kickstart', function () {
             setTimeout(function () {
                 _this.isMoving = true;                
-            }, 2000)
+            }, 4000)
         }); 
         
         this.el.addEventListener('switch', function () {
