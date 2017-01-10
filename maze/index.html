@@ -17,7 +17,7 @@
             <img id="ground-pattern" crossorigin="anonymous" src="img/ground.png">  
             
             <!-- 360 background -->
-            <img id="city-bg" crossorigin="anonymous" src="img/background_test.jpg">            
+            <img id="city-bg" crossorigin="anonymous" src="img/background.jpg">            
             
             <!-- little towers --> 
             <a-asset-item id="lt1Obj" src="model/little-tower/little-tower-1.obj"></a-asset-item>
@@ -158,7 +158,7 @@
         <!-- end city -->
         
         <!-- Ground -->
-        <a-plane static-body position="0 0 0" rotation="-90 0 0" width="550" height="600" material="shader: flat; repeat: 2000; src: #ground-pattern;"></a-plane>
+        <a-plane static-body position="0 0 0" rotation="-90 0 0" width="550" height="600" material="shader: flat; repeat: 400 400; src: #ground-pattern;"></a-plane>
         <!-- outer Walls -->
         <a-plane static-body position="235 20 0" rotation="0 -90 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
         <a-plane static-body position="-230 20 0" rotation="0 90 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
@@ -166,7 +166,7 @@
         <a-plane static-body position="0 20 -265" rotation="0 0 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
         
         <!-- Sky -->
-        <a-sky radius="600" src="#city-bg"></a-sky> 
+        <a-sky radius="1400" src="#city-bg"></a-sky> 
     </a-scene>
 </body>
 
