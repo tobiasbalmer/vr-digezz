@@ -59,39 +59,40 @@
         </a-assets>        
         
         <!-- Camera -->        
-        <a-entity camera universal-controls kinematic-body jump-ability position="0 3 1.5">
-            <a-ring id="cursor" radius-outer="0.15" radius-inner="0.10" scale="0.1 0.1 0.1" position="0 0 -0.3" material="color: #a3a3a3; shader: flat; opacity: 0.8;" cursor="maxDistance: 30; fuse: false"></a-ring>                    
+        <a-entity class="kickstart" camera universal-controls="movementControls: automove, gamepad, keyboard" kinematic-body jump-ability position="0 3 1.5">
+            <a-ring id="cursor" radius-outer="0.15" radius-inner="0.10" scale="0.1 0.1 0.1" position="0 0 -0.3" material="color: #a3a3a3; shader: flat; opacity: 0.8;" cursor="maxDistance: 30; fuse: true"></a-ring>                    
         </a-entity>
 
         <!-- fading room -->
         <a-entity id="fading-room" position="0 0 0">
             
             <!-- button -->
-            <a-entity position="0 0 -2">
-            <a-cylinder static-body color="#ba0101" position="0 0.9 0" height="0.3" radius="0.8" trigger-others="target: .fading-room">
-                <!--<a-animation attribute="position" begin="cursor-fusing" to="0 0.7 0" dur="500" fill="forwards"></a-animation>-->
-                <a-animation attribute="position" begin="click" to="0 0.7 0" dur="500" fill="forwards"></a-animation>                
-            </a-cylinder>
-            <a-box static-body color="#2f2f2f" width="2" height="1.5" depth="2">
-            </a-box>                
+            <a-entity class="kickstart" position="0 0 -2">
+                <a-cylinder static-body color="#ba0101" position="0 0.9 0" height="0.3" radius="0.8" trigger-others="target: .kickstart">
+                    <!--<a-animation attribute="position" begin="cursor-fusing" to="0 0.7 0" dur="500" fill="forwards"></a-animation>-->
+                    <a-animation attribute="position" begin="click" to="0 0.7 0" dur="500" fill="forwards"></a-animation>                
+                </a-cylinder>
+                <a-box static-body color="#2f2f2f" width="2" height="1.5" depth="2">
+                </a-box>   
+                <a-animation attribute="position" begin="triggered" to="0 -2 -2" dur="1500" delay="2000" fill="forwards"></a-animation>                
             </a-entity>
             
             <!-- walls -->
-            <a-box class="fading-room" static-body position="0 2 -4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
+            <a-box class="kickstart" static-body position="0 2 -4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
                 <a-animation begin="triggered" attribute="position" to="0 -2.1 -4" dur="1500" fill="forwards" delay="2800"></a-animation>            
             </a-box>
-            <a-box class="fading-room" static-body position="0 2 4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
+            <a-box class="kickstart" static-body position="0 2 4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
                 <a-animation begin="triggered" attribute="position" to="0 -2.1 4" dur="1500" fill="forwards" delay="3000"></a-animation>                    
             </a-box>
-            <a-box class="fading-room" static-body position="4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
+            <a-box class="kickstart" static-body position="4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
                 <a-animation begin="triggered" attribute="position" to="4 -2.1 0" dur="1500" fill="forwards" delay="2900"></a-animation>                    
             </a-box>
-            <a-box class="fading-room" static-body position="-4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
+            <a-box class="kickstart" static-body position="-4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
                 <a-animation begin="triggered" attribute="position" to="-4 -2.1 0" dur="1500" fill="forwards" delay="2700"></a-animation>            
             </a-box>
            
             <!-- ceiling -->
-            <a-box class="fading-room" static-body position="0 4 0" width="8" height="0.1" depth="8" color="black">
+            <a-box class="kickstart" static-body position="0 4 0" width="8" height="0.1" depth="8" color="black">
                 <a-animation begin="triggered" attribute="position" to="0 6 0" dur="2500" fill="forwards" delay="200"></a-animation>  
                 <a-animation begin="triggered" attribute="width" to="0" dur="500" fill="forwards" delay="3000"></a-animation>                  
                 <a-animation begin="triggered" attribute="depth" to="0" dur="500" fill="forwards" delay="3000"></a-animation>                  
