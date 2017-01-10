@@ -13,11 +13,13 @@
     <a-scene> <!-- fog="type: exponential; color: #f0f0f0; density: 0.019;" -->
         <!-- Assets -->
         <a-assets>
-            <!-- ground pattern -->
+            <!-- patterns -->
             <img id="ground-pattern" crossorigin="anonymous" src="img/ground.png">  
+            <img id="grass-pattern" crossorigin="anonymous" src="img/grass.png">  
             
-            <!-- 360 background -->
-            <img id="city-bg" crossorigin="anonymous" src="img/background.jpg">            
+            <!-- 360 backgrounds -->
+            <img id="city-bg" crossorigin="anonymous" src="img/background_city.jpg">            
+            <img id="nature-bg" crossorigin="anonymous" src="img/background_nature.jpg">
             
             <!-- little towers --> 
             <a-asset-item id="lt1Obj" src="model/little-tower/little-tower-1.obj"></a-asset-item>
@@ -56,51 +58,63 @@
             <a-asset-item id="wt2Obj" src="model/wide-tower/wide-tower-2.obj"></a-asset-item>
             <a-asset-item id="wt2Mtl" src="model/wide-tower/wide-tower-2.mtl"></a-asset-item>            
             
-        </a-assets>        
+        </a-assets>  
+        
+        <!-- Ground -->
+        <a-plane id="ground-plane" static-body position="0 0 0" rotation="-90 0 0" width="550" height="600" material="shader: flat; repeat: 400 400; src: #ground-pattern;"></a-plane>
+       
+        <!-- outer Walls -->
+        <a-plane static-body position="235 20 0" rotation="0 -90 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
+        <a-plane static-body position="-230 20 0" rotation="0 90 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
+        <a-plane static-body position="0 20 265" rotation="0 180 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
+        <a-plane static-body position="0 20 -265" rotation="0 0 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
+        
+        <!-- Sky -->
+        <a-sky radius="1400" src="#city-bg"></a-sky>        
         
         <!-- Camera -->        
-        <a-entity class="kickstart" camera universal-controls="movementControls: automove, gamepad, keyboard" kinematic-body jump-ability position="0 3 1.5">
-            <a-ring id="cursor" radius-outer="0.15" radius-inner="0.10" scale="0.1 0.1 0.1" position="0 0 -0.3" material="color: #a3a3a3; shader: flat; opacity: 0.8;" cursor="maxDistance: 30; fuse: true"></a-ring>                    
-        </a-entity>
+        <a-entity class="kickstart switch" camera universal-controls="movementControls: automove, gamepad, keyboard" kinematic-body jump-ability position="0 3 1.5">
+            <a-ring id="cursor" radius-outer="0.15" radius-inner="0.10" scale="0.1 0.1 0.1" position="0 0 -0.3" material="color: #a3a3a3; shader: flat; opacity: 0.8;" cursor="fuse: true" raycaster="far: 5;"></a-ring>                    
+        </a-entity>        
+        
+        <!-- city -->        
+        <a-entity class="switch"> 
+            
+            <!-- fading room -->
+            <a-entity id="fading-room" position="0 0 0">
 
-        <!-- fading room -->
-        <a-entity id="fading-room" position="0 0 0">
-            
-            <!-- button -->
-            <a-entity class="kickstart" position="0 0 -2">
-                <a-cylinder static-body color="#ba0101" position="0 0.9 0" height="0.3" radius="0.8" trigger-others="target: .kickstart">
-                    <!--<a-animation attribute="position" begin="cursor-fusing" to="0 0.7 0" dur="500" fill="forwards"></a-animation>-->
-                    <a-animation attribute="position" begin="click" to="0 0.7 0" dur="500" fill="forwards"></a-animation>                
-                </a-cylinder>
-                <a-box static-body color="#2f2f2f" width="2" height="1.5" depth="2">
-                </a-box>   
-                <a-animation attribute="position" begin="triggered" to="0 -2 -2" dur="1500" delay="2000" fill="forwards"></a-animation>                
+                <!-- start button -->
+                <a-entity class="kickstart" position="0 0 -2">
+                    <a-cylinder static-body color="#ba0101" position="0 0.9 0" height="0.3" radius="0.8" trigger-others="target: .kickstart; trigger: kickstart">
+                        <!--<a-animation attribute="position" begin="cursor-fusing" to="0 0.7 0" dur="500" fill="forwards"></a-animation>-->
+                        <a-animation attribute="position" begin="click" to="0 0.7 0" dur="500" fill="forwards"></a-animation>                
+                    </a-cylinder>
+                    <a-box static-body color="#2f2f2f" width="2" height="1.5" depth="2">
+                    </a-box>   
+                    <a-animation attribute="position" begin="kickstart" to="0 -2 -2" dur="1500" delay="2000" fill="forwards"></a-animation>                
+                </a-entity>
+
+                <!-- walls -->
+                <a-box class="kickstart" static-body position="0 2 -4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
+                    <a-animation begin="kickstart" attribute="position" to="0 -2.1 -4" dur="1500" fill="forwards" delay="2800"></a-animation>            
+                </a-box>
+                <a-box class="kickstart" static-body position="0 2 4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
+                    <a-animation begin="kickstart" attribute="position" to="0 -2.1 4" dur="1500" fill="forwards" delay="3000"></a-animation>                    
+                </a-box>
+                <a-box class="kickstart" static-body position="4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
+                    <a-animation begin="kickstart" attribute="position" to="4 -2.1 0" dur="1500" fill="forwards" delay="2900"></a-animation>                    
+                </a-box>
+                <a-box class="kickstart" static-body position="-4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
+                    <a-animation begin="kickstart" attribute="position" to="-4 -2.1 0" dur="1500" fill="forwards" delay="2700"></a-animation>            
+                </a-box>
+
+                <!-- ceiling -->
+                <a-box class="kickstart" static-body position="0 4 0" width="8" height="0.1" depth="8" color="black">
+                    <a-animation begin="kickstart" attribute="position" to="0 6 0" dur="2500" fill="forwards" delay="200"></a-animation>  
+                    <a-animation begin="kickstart" attribute="width" to="0" dur="500" fill="forwards" delay="3000"></a-animation>                  
+                    <a-animation begin="kickstart" attribute="depth" to="0" dur="500" fill="forwards" delay="3000"></a-animation>                  
+                </a-box>
             </a-entity>
-            
-            <!-- walls -->
-            <a-box class="kickstart" static-body position="0 2 -4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
-                <a-animation begin="triggered" attribute="position" to="0 -2.1 -4" dur="1500" fill="forwards" delay="2800"></a-animation>            
-            </a-box>
-            <a-box class="kickstart" static-body position="0 2 4" rotation="0 0 0" width="8" height="4" depth="0.1" color="black">
-                <a-animation begin="triggered" attribute="position" to="0 -2.1 4" dur="1500" fill="forwards" delay="3000"></a-animation>                    
-            </a-box>
-            <a-box class="kickstart" static-body position="4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
-                <a-animation begin="triggered" attribute="position" to="4 -2.1 0" dur="1500" fill="forwards" delay="2900"></a-animation>                    
-            </a-box>
-            <a-box class="kickstart" static-body position="-4 2 0" rotation="0 90 0" width="8" height="4" depth="0.1" color="black">
-                <a-animation begin="triggered" attribute="position" to="-4 -2.1 0" dur="1500" fill="forwards" delay="2700"></a-animation>            
-            </a-box>
-           
-            <!-- ceiling -->
-            <a-box class="kickstart" static-body position="0 4 0" width="8" height="0.1" depth="8" color="black">
-                <a-animation begin="triggered" attribute="position" to="0 6 0" dur="2500" fill="forwards" delay="200"></a-animation>  
-                <a-animation begin="triggered" attribute="width" to="0" dur="500" fill="forwards" delay="3000"></a-animation>                  
-                <a-animation begin="triggered" attribute="depth" to="0" dur="500" fill="forwards" delay="3000"></a-animation>                  
-            </a-box>
-        </a-entity>
-        
-        
-        <!-- city -->
         
             <!-- towers -->
             <a-entity static-body position="0 -0.7 -55" scale="0.7 0.7 0.7" rotation="0 90 0" obj-model="obj: #tt3Obj; mtl: #tt3Mtl"></a-entity>        
@@ -155,19 +169,29 @@
             <a-entity static-body position="-110 -0.9 280" scale="1 1 0.8" rotation="0 180 0" obj-model="obj: #wt1Obj; mtl: #wt1Mtl"></a-entity>        
             <a-entity static-body position="50 -0.9 250" scale="1 1 1" rotation="0 180 0" obj-model="obj: #lt2Obj; mtl: #lt2Mtl"></a-entity>        
             <a-entity static-body position="0 -0.6 275" scale="0.7 0.7 0.7" rotation="0 -90 0" obj-model="obj: #tt2Obj; mtl: #tt2Mtl"></a-entity>                
-            <a-entity static-body position="-40 -0.6 245" scale="0.7 0.7 0.7" rotation="0 0 0" obj-model="obj: #tt1oObj; mtl: #tt1oMtl"></a-entity>
-        <!-- end city -->
+            <a-entity static-body position="-40 -0.6 245" scale="0.7 0.7 0.7" rotation="0 0 0" obj-model="obj: #tt1oObj; mtl: #tt1oMtl"></a-entity>            
+            
+            <!-- end button -->
+            <a-entity position="-5 0 -20">
+                <a-cylinder static-body color="#ba0101" position="0 0.9 0" height="0.3" radius="0.8" trigger-others="target: .switch; trigger: switch">
+                    <a-animation attribute="position" begin="click" to="0 0.7 0" dur="500" fill="forwards"></a-animation>                
+                </a-cylinder>
+                <a-box static-body color="#2f2f2f" width="2" height="1.5" depth="2">
+                </a-box>   
+            </a-entity>
+            
+            <a-animation attribute="visible" begin="something" to="false" dur="0" delay="1000" fill="forwards"></a-animation>
+            <a-animation attribute="position" begin="switch" to="0 -175 0" dur="0" delay="1000" fill="forwards"></a-animation>            
+        </a-entity>
+        <!-- end city -->   
         
-        <!-- Ground -->
-        <a-plane static-body position="0 0 0" rotation="-90 0 0" width="550" height="600" material="shader: flat; repeat: 400 400; src: #ground-pattern;"></a-plane>
-        <!-- outer Walls -->
-        <a-plane static-body position="235 20 0" rotation="0 -90 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
-        <a-plane static-body position="-230 20 0" rotation="0 90 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
-        <a-plane static-body position="0 20 265" rotation="0 180 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
-        <a-plane static-body position="0 20 -265" rotation="0 0 0" width="600" height="40" opacity="0" color="#5780db"></a-plane>
-        
-        <!-- Sky -->
-        <a-sky radius="1400" src="#city-bg"></a-sky> 
+        <!-- nature -->
+        <a-entity class="switch" position="0 -20 0">
+            <a-box></a-box>
+            
+            <a-animation attribute="position" begin="switch" to="0 0 0" dur="0" delay="1000" fill="forwards"></a-animation>                        
+        </a-entity>
+        <!-- end nature --> 
     </a-scene>
 </body>
 
